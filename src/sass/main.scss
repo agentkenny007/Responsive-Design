@@ -28,7 +28,7 @@
 }
 
 html {
-    font: 10px Lato;
+    font: 10px Lato, sans-serif;
 }
 
 .container {
@@ -137,18 +137,6 @@ html {
             }
             .fa {
                 margin-left: 20px;
-                &:after {
-                    content: '';
-                    position: absolute;
-                    display: block;
-                    left: 102px;
-                    top: 0;
-                    width: 10px;
-                    height: 100%;
-                    background-color: #AFDCF8;
-                    padding-bottom: 20px;
-                    z-index: -1;
-                }
             }
         }
         .content {
@@ -163,6 +151,18 @@ html {
                 border-style: solid;
                 border-width: 10px 10px 10px 0;
             }
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            display: block;
+            left: 102px;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #AFDCF8;
+            padding-bottom: 20px;
+            z-index: -1;
         }
         &:nth-child(even) .content:before {
             border-color: transparent #3594CB transparent transparent;
@@ -190,15 +190,15 @@ html {
             }
             .fa {
                 margin-left: 10px;
-                &:after {
-                    left: 158px;
-                }
             }
         }
         .content {
             margin-left: 210px;
             padding: 36px;
             font-size: 2em;
+        }
+        &:after {
+            left: 158px;
         }
     }
 }
