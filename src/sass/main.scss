@@ -32,12 +32,14 @@ html {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1024px;
+    box-sizing: border-box;
     margin: 10px auto;
-    padding: 0 30px;
+    padding: 0.5px 30px;
 }
 
 .post {
+    position: relative;
     .info {
         .date {
             display: block;
@@ -45,7 +47,6 @@ html {
             font-size: 1.5em;
         }
         .time {
-            color: #6CBFEE;
             font-size: 2.5em;
         }
         .fa {
@@ -70,20 +71,134 @@ html {
         }
     }
     .content {
+        position: relative;
         color: white;
         font-size: 1.5em;
         margin: 20px 0;
-        padding: 18px;
+        padding: 0.5px 18px;
+        h3 {
+            font-size: 1.75em;
+            margin: 10px 0;
+            padding-bottom: 10px;
+            border-bottom: 0.5px solid;
+        }
+        p {
+            line-height: 1.4;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: -10px;
+            display: block;
+            width: 0px;
+            height: 0px;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+        }
         @include border-radius(5px);
     }
-    &:nth-child(odd) {
-        .content {
-            background-color: #6CBFEE;
-        }
-    }
     &:nth-child(even) {
+        .info .time {
+            color: #3594CB;
+        }
         .content {
             background-color: #3594CB;
+            &:before {
+                border-color: transparent transparent #3594CB transparent;
+            }
+        }
+    }
+    &:nth-child(odd) {
+        .info .time {
+            color: #6CBFEE;
+        }
+        .content {
+            background-color: #6CBFEE;
+            &:before {
+                border-color: transparent transparent #6CBFEE transparent;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 540px) {
+    .post {
+        .info {
+            float: left;
+            .date {
+                margin-left: 8px;
+                font-size: 1.4em;
+            }
+            .time {
+                float: left;
+                display: block;
+                font-size: 2.25em;
+            }
+            .fa {
+                margin-left: 20px;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    left: 102px;
+                    top: 0;
+                    width: 10px;
+                    height: 100%;
+                    background-color: #AFDCF8;
+                    padding-bottom: 20px;
+                    z-index: -1;
+                }
+            }
+        }
+        .content {
+            font-size: 1.75em;
+            margin-left: 150px;
+            padding: 18px 28px;
+            &:before {
+                left: -10px;
+                top: 18px;
+                width: 0px;
+                height: 0px;
+                border-style: solid;
+                border-width: 10px 10px 10px 0;
+            }
+        }
+        &:nth-child(even) .content:before {
+            border-color: transparent #3594CB transparent transparent;
+        }
+        &:nth-child(odd) .content:before {
+            border-color: transparent #6CBFEE transparent transparent;
+        }
+        &:last-child {
+            .info .fa:after {
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .post {
+        .info {
+            .date {
+                margin-left: 66px;
+                font-size: 1.6em;
+            }
+            .time {
+                font-size: 4.8em;
+            }
+            .fa {
+                margin-left: 10px;
+                &:after {
+                    left: 158px;
+                }
+            }
+        }
+        .content {
+            margin-left: 210px;
+            padding: 36px;
+            font-size: 2em;
         }
     }
 }
